@@ -1,0 +1,51 @@
+rngtest ripped out of rng-tools (debian git repo) and modified to build on 
+FreeBSD by Waitman Gobble <waitman@waitman.net> 2013-07-19
+
+*note* needs devel/argp-standalone from ports
+
+this builds librngd.a and links to rngtest, but it does not install 
+the the librndg library.
+
+
+source: http://packages.debian.org/source/sid/rng-tools
+
+examples:
+
+> cat /dev/random | rngtest -c 1000
+rngtest 2-unofficial-mt.14
+Copyright (c) 2004 by Henrique de Moraes Holschuh
+This is free software; see the source for copying conditions.  There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+rngtest: starting FIPS tests...
+rngtest: bits received from input: 20000032
+rngtest: FIPS 140-2 successes: 1000
+rngtest: FIPS 140-2 failures: 0
+rngtest: FIPS 140-2(2001-10-10) Monobit: 0
+rngtest: FIPS 140-2(2001-10-10) Poker: 0
+rngtest: FIPS 140-2(2001-10-10) Runs: 0
+rngtest: FIPS 140-2(2001-10-10) Long run: 0
+rngtest: FIPS 140-2(2001-10-10) Continuous run: 0
+rngtest: input channel speed: (min=3.104; avg=26.015; max=18.626)Gibits/s
+rngtest: FIPS tests speed: (min=160.281; avg=165.696; max=168.792)Mibits/s
+rngtest: Program run time: 115987 microseconds
+
+
+
+> ../fortuna-tests/tests/rngtest-fortuna | rngtest -c 1000
+rngtest 2-unofficial-mt.14
+Copyright (c) 2004 by Henrique de Moraes Holschuh
+This is free software; see the source for copying conditions.  There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+rngtest: starting FIPS tests...
+rngtest: bits received from input: 20000032
+rngtest: FIPS 140-2 successes: 1000
+rngtest: FIPS 140-2 failures: 0
+rngtest: FIPS 140-2(2001-10-10) Monobit: 0
+rngtest: FIPS 140-2(2001-10-10) Poker: 0
+rngtest: FIPS 140-2(2001-10-10) Runs: 0
+rngtest: FIPS 140-2(2001-10-10) Long run: 0
+rngtest: FIPS 140-2(2001-10-10) Continuous run: 0
+rngtest: input channel speed: (min=1.035; avg=18.664; max=18.626)Gibits/s
+rngtest: FIPS tests speed: (min=137.219; avg=146.831; max=149.012)Mibits/s
+rngtest: Program run time: 144943 microseconds
+
