@@ -3,6 +3,7 @@ AR?=            ar
 INSTALL?=       install
 PREFIX?=        /usr/local
 CFLAGS?=        -O2 
+WRKSRC?=	.
 
 all: librngd rngtest
 
@@ -11,7 +12,7 @@ librngd:
 	$(AR) rvs librngd.a fips.o stats.o util.o viapadlock_engine.o
 
 rngtest:
-	$(CC) -I./src -I/usr/include -I$(PREFIX)/include $(CFLAGS) -pthread -Wall -Werror ./src/rngtest.c -o rngtest $(PREFIX)/lib/libargp.a librngd.a
+	$(CC) -I./src -I/usr/include -I$(PREFIX)/include $(CFLAGS) -pthread -Wall -Werror ./src/rngtest.c -o rngtest $(PREFIX)/lib/libargp.a $(WRKSRC)/librngd.a
 
 install:
 	$(INSTALL) -m 755 -o root -g wheel rngtest $(PREFIX)/bin/
