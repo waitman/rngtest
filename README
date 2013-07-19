@@ -4,7 +4,7 @@ FreeBSD by Waitman Gobble <waitman@waitman.net> 2013-07-19
 *note* needs devel/argp-standalone from ports
 
 this builds librngd.a and links to rngtest, but it does not install 
-the the librndg library.
+the the librngd library anywhere separately.
 
 
 source: http://packages.debian.org/source/sid/rng-tools
